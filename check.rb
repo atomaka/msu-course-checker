@@ -10,7 +10,8 @@ abort "usage: ./check.rb SEMESTER SUBJECT COURSE [SECTIONS]\n" unless ARGV.lengt
 settings = YAML.load_file('conf/settings.yml')
 
 semesters = {
-  'US13'      => 'US131132summer 2013'
+  'US13' => 'US131132summer 2013',      'FS13' => 'FS131134fall 2013',
+  'SS13' => 'SS141136spring 2014'
 }
 
 semester = ARGV.shift
@@ -22,28 +23,16 @@ abort "Requires a valid semester code\n" unless semesters.has_key?(semester)
 
 data = {
   'Semester'        => semesters[semester],
-  'Post'            => 'Y',
-  'Button'          => '',
-  'Online'          => '',
-  'Subject'         => subject,
-  'CourseNumber'    => course,
+  'Post'            => 'Y', 'Button'          => '', 'Online'           => '',
+  'Subject'         => subject, 'CourseNumber'=> course,
   'Instructor'      => 'ANY',
-  'StartTime'       => '0600',
-  'EndTime'         => '2350',
-  'OnBeforeDate'    => '',
-  'OnAfterDate'     => '',
-  'Sunday'          => 'Su',
-  'Monday'          => 'M',
-  'Tuesday'         => 'Tu',
-  'Wednesday'       => 'W',
-  'Thursday'        => 'Th',
-  'Friday'          => 'F',
+  'StartTime'       => '0600', 'EndTime'      => '2350',
+  'OnBeforeDate'    => '', 'OnAfterDate'      => '',
+  'Sunday'          => 'Su', 'Monday'         => 'M', 'Tuesday'         => 'Tu',
+  'Wednesday'       => 'W', 'Thursday'        => 'Th', 'Friday'         => 'F',
   'Saturday'        => 'Sa',
-  'OnCampus'        => 'Y',
-  'OffCampus'       => 'Y',
-  'OnlineCourses'   => 'Y',
-  'StudyAbroad'     => 'Y',
-  'MSUDubai'        => 'Y',
+  'OnCampus'        => 'Y', 'OffCampus'       => 'Y', 'OnlineCourses'   => 'Y',
+  'StudyAbroad'     => 'Y', 'MSUDubai'        => 'Y',
   'OpenCourses'     => 'A',
   'Submit'          => 'Search for Courses'
 }
