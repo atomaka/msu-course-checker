@@ -11,7 +11,8 @@ settings = YAML.load_file('conf/settings.yml')
 
 semesters = {
   'US13' => 'US131132summer 2013',      'FS13' => 'FS131134fall 2013',
-  'SS13' => 'SS141136spring 2014'
+  'SS14' => 'SS141136spring 2014',
+  'US14' => 'US141142summer 2014',
 }
 
 semester = ARGV.shift
@@ -50,7 +51,7 @@ courses.each do |course|
 end
 
 if open.length > 0
-  @client = Twilio::REST::Client.new settings['twilio']['sid'], 
+  @client = Twilio::REST::Client.new settings['twilio']['sid'],
     settings['twilio']['token']
 
   @call = @client.account.calls.create(
